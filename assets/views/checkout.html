@@ -24,7 +24,7 @@
             </div>
 
             <div class="col-md-5">
-                <form id="form-purched" method="POST" action="index.html">
+                <form id="form-purche" method="POST" action="index.html">
                     <div class="form-group">
                         <label for="name">Full name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Full name" required>
@@ -62,16 +62,53 @@
         </div>
 
         <script>
-            $('#form-purched').on('submit', function (e){
-                $.ajax({
-                   // url: 'index.html',
-                    type: 'post',
-                    data: jQuery('#form-purched').seralize(),
-                    success: function (result) {
-                        alert(result);
+            $(document).ready(function(){
+                $(function (){
+                    var formElemnet = $('#form-purche');
+                    if (formElemnet.length){
+                        formElemnet.validate({
+                            rules: {
+                                name: {
+                                    required: true
+                                },
+                                email: {
+                                    required: true
+                                },
+                                address: {
+                                    required: true
+                                },
+                                country: {
+                                    required: true
+                                },
+                                namecard: {
+                                    required: true
+                                }
+
+                            },
+
+                            messages: {
+                                name: {
+                                    required: 'Please enter name!'
+                                },
+                                email: {
+                                    required: 'Please enter email!'
+                                },
+                                address: {
+                                    required: 'Please enter address!'
+                                },
+                                country: {
+                                    required: 'Please enter country!'
+                                },
+                                namecard: {
+                                    required: 'Please enter name on card!'
+                                }
+                            },
+
+                            
+                        })
                     }
-                });
-                e.preventDefault();
+                        
+                })
             });
         </script>
     </body>

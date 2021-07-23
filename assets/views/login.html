@@ -11,7 +11,12 @@
     <!------ Include the above in your HEAD tag ---------->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
+    <style>
+        .error{
+            color: crimson;
+            font-style: italic;
+        }
+    </style>
     </head>
     <body>
     <div class="container">
@@ -26,37 +31,121 @@
                 <h4 class="card-title mt-3 text-center" style="float: right;">Đăng kí</h4>
             </div>
             
-            <form>
+            <form id="formLogin">
              <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                 </div>
-                <input name="" class="form-control" placeholder="Số điện thoại" type="text">
+                <input id="numberphone" name="numberphone" class="form-control" placeholder="Số điện thoại" type="number">
             </div> <!-- form-group// -->
            
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Mật khẩu" type="password">
+                <input id="password" name="password" class="form-control" placeholder="Mật khẩu" type="password">
             </div> <!-- form-group// -->
             <!-- form-group// -->                                      
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Đăng nhập</button>
+                <button type="submit" id="btnsubmit" class="btn btn-primary btn-block"> Đăng nhập</button>
             </div> <!-- form-group// -->      
             <p class="text-center">Have an account? </p>  
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Đăng kí</button>
-            </div>                                                               
+                                                                          
         </form>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block"> Đăng kí</button>
+        </div> 
         </article>
         </div> <!-- card.// -->
 
         </div> 
         <!--container end.//-->
-
-        
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <!-- <script src="/assets/views/login.js"></script> -->
+    <!-- <script type="text/javascript">
+    $(document).ready(function(){
+        
+        $(function(){
+
+            var $formLogin = $('#formLogin');
+            if ($formLogin.length){
+                $formLogin.validate({
+                    rules: {
+                        numberphone:{
+                            required: true
+                        },
+                        password:{
+                            required: true
+                        }
+
+                    },
+                    messages:{
+                        numberphone:{
+                            required: 'vui lòng nhập số điện thoại!'
+                        },
+                        password:{
+                            required: 'vui lòng nhập mật khẩu!'
+                        }
+                    }
+                })
+            }
+
+
+            
+        });
+    });
+
+    </script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            var submit = $("button[id='btnsubmit']");
+             
+            // bắt sự kiện click vào nút Login
+            submit.click(function()
+            {
+                var numberphone = $("input[name='numberphone']").val();
+                var password = $("input[name='password']").val();
+                 
+                // Kiểm tra đã nhập tên tài khoản chưa
+                if (numberphone == '' || numberphone.length < 10) {
+                    alert('Vui lòng nhập đúng số điện thoại');
+                    return false;
+                } 
+                
+                 
+                // Kiểm tra đã nhập mật khẩu chưa
+                if (password == '') {
+                    alert('Vui lòng nhập mật khẩu');
+                    return false;
+                }
+                 
+                // Lấy tất cả dữ liệu trong form login
+                var data = $('form#formLogin').serialize();
+                // Sử dụng $.ajax()
+                $.ajax({
+                type : 'POST', //kiểu post
+                url  : 'login.js', //gửi dữ liệu sang trang submit.php
+                data : data,
+                success :  function(data)
+                       {
+                            if (data == 'false')
+                            {
+                                alert('Sai tên đăng nhập hoặc mật khẩu');
+                            } else {
+                                $('#content').html(data);
+                            }
+                       }
+                });
+                return false;
+            });
+        });
+        </script>
+
 </body>
 </html>

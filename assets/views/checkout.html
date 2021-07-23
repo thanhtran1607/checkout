@@ -24,46 +24,49 @@
             </div>
 
             <div class="col-md-5">
-                <form id="form-purche" method="POST" action="index.html">
+                <form id="formpurche" method="POST" action="checkout.html">
                     <div class="form-group">
                         <label for="name">Full name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Full name" required>
                         
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="@gmail.com" required>
                        
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <label for="address">Address</label>
                         <input type="text" class="form-control" id="address" name="address" placeholder="14 Ha Dong" required>
                         
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <label for="country">Country</label>
                         <input type="text" class="form-control" id="country" name="country" placeholder="Viet Nam" required>
                         
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <label for="namecard">Name on card</label>
                         <input type="number" class="form-control" id="namecard" name="namecard" placeholder="Name on card" required>
                         
                     </div>
-
+                    <br>
                     <button id="btncheckout" class="form-control" type="submit">Continue to Checkout</button>
                 </form>
             </div>
 
         </div>
 
-        <script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+        <script type="text/javascript">
             $(document).ready(function(){
                 $(function (){
+                    
                     var formElemnet = $('#form-purche');
                     if (formElemnet.length){
                         formElemnet.validate({
@@ -108,7 +111,20 @@
                         })
                     }
                         
-                })
+                });
+                // $.ajax({
+                //     url:'checkout.html',
+                //     method:'post',
+                //     dataType:'json',
+                //     success:function(data){
+                //         $('#formpurche').formPurche({
+                //             data:data,
+                //             rules:[
+                                
+                //             ]
+                //         })
+                //     }
+                // })
             });
         </script>
     </body>

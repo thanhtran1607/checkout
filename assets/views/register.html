@@ -11,7 +11,54 @@
     <!------ Include the above in your HEAD tag ---------->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <!-- <script type="text/javascript">
+        $(document).ready(function(){
+            var listRegister={};
+            $('#btnRegister').click(function(){
+                listRegister.name = $('#name').val();
+                listRegister.email = $('#email').val();
+                listRegister.numberphone = $('#numberphone').val();
+                listRegister.password = $('#password').val();
+                listRegister.passwordconfirm = $('#passwordconfirm').val();
+                var listRegisterObj = JSON.stringify(listRegister);
+                
+                $.ajax({
+                    url: 'register.hmtl',
+                    method: 'post',
+                    data: 'listRegisterObj',
+                    dataType: 'application/json; charset: utf-8',
+                    success: function () {
+                        // $("#form-register").formRegister({
+                        //     data: dataRegister,
+                        //     forms: [
+                        //         {'data': id},
+                        //         {'data': id},
+                        //         {'data': id},
+                        //         {'data': id},
+                        //         {'data': id},
+                        //         {'data': id},
+                        //         {'data': id},
+                        //     ]
+                        // })
 
+                        alert('saved success');
+
+                    },
+                    error: function (error){
+                        alert(error);
+                    }
+                })
+
+            })
+                
+        })
+    </script> -->
+        <style>
+            .error{
+                color: crimson;
+                font-style: italic;
+            }
+        </style>
     </head>
     <body>
     <div class="container">
@@ -26,40 +73,41 @@
                 <h4 class="card-title mt-3 text-center" style="float: right;">Đăng nhập</h4>
             </div>
             
-            <form>
+            <form id="formregister">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input name="" class="form-control" placeholder="Tên đăng nhập" type="text">
+                <input id="username" name="username" class="form-control" placeholder="Tên đăng nhập" type="text">
+                <br>
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                 </div>
-                <input name="" class="form-control" placeholder="Email" type="email">
+                <input id="email" name="email" class="form-control" placeholder="Email" type="email">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                 </div>
-                <input name="" class="form-control" placeholder="Số điện thoại" type="text">
+                <input id="numberphone" name="numberphone" class="form-control" placeholder="Số điện thoại" type="number">
             </div> <!-- form-group// -->
            
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Mật khẩu" type="password">
+                <input id="password" name="password" class="form-control" placeholder="Mật khẩu" type="password">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Nhập lại mật khẩu" type="password">
+                <input id="passwordconfirm" name="passwordconfirm" class="form-control" placeholder="Nhập lại mật khẩu" type="password">
             </div> <!-- form-group// -->                                      
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Đăng kí</button>
+                <button type="submit" id="btnRegister" class="btn btn-primary btn-block">Đăng kí</button>
             </div> <!-- form-group// -->      
             <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
         </form>
@@ -68,8 +116,101 @@
 
         </div> 
         <!--container end.//-->
-
-        
     </div>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <!-- <script src="/assets/views/register.js"></script> -->
+    <!-- <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+                url:'register.html',
+                method: 'get',
+                dataType: 'json',
+                success:function(data){
+                    $('#formregister').formregister({
+                        data: data,
+                        columns: [
+                            {'data': 'id'},
+                            {'data': 'name'},
+                            {'data': 'email'},
+                            {'data': 'numberphone'}
+                        ]
+                    })
+                }
+            })
+        })
+    </script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            var submit = $("button[id='btnRegister']");
+
+            const checkRequired = (value, title="") => {
+                if(!value) {
+                    alert("Vui lòng nhập đúng " + title);
+                    return false;
+                }
+            }
+             
+            // bắt sự kiện click vào nút Login
+            submit.click(function()
+            {
+                var username = $("input[name='username']").val();
+                var email = $("input[name='email']").val();
+                var numberphone = $("input[name='numberphone']").val();
+                var password = $("input[name='password']").val();
+                var passwordconfirm = $("input[name='passwordconfirm']").val();
+                 
+                // Kiểm tra đã nhập tên tài khoản chưa
+                checkRequired(username, "tài khoản");
+                checkRequired(email, "email");
+
+                // checkRequired(numberphone, numberphone.length<10, "đúng số điện thoại");
+                // checkRequired(password, password.length < 6, "đúng số điện thoại");
+
+                if (numberphone == '' || numberphone.length < 10) {
+                    alert('Vui lòng nhập đúng số điện thoại');
+                    return false;
+                } 
+                
+                 
+                // Kiểm tra đã nhập mật khẩu chưa
+                if (password == '' || password.length < 6) {
+                    alert('mật khẩu phải có độ dài trên 6 kí tự');
+                    return false;
+                }
+
+                if (passwordconfirm == '' || passwordconfirm.length != password.length) {
+                    alert('Vui lòng nhập lại mật khẩu');
+                    return false;
+                } 
+                 
+                // Lấy tất cả dữ liệu trong form login
+                var data = $('form#formregister').serialize();
+                // Sử dụng $.ajax()
+                $.ajax({
+                type : 'POST', //kiểu post
+                url  : 'register.js', //gửi dữ liệu sang trang
+                data : {
+                    username: 'username',
+                    email:'email',
+                    numberphone: 'numberphone',
+                    password:'password',
+                    passwordconfirm: 'passwordconfirm'
+                    
+                },
+                success: function(event){
+                    if (event.trim()=='error'){
+                        
+                    }
+                }
+                    
+                
+            });
+        });
+        </script>
+
 </body>
 </html>

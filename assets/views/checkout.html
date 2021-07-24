@@ -67,9 +67,9 @@
             $(document).ready(function(){
                 $(function (){
                     
-                    var formElemnet = $('#form-purche');
-                    if (formElemnet.length){
-                        formElemnet.validate({
+                    var checkBillElement = $('#form-purche');
+                    if (checkBillElement.length){
+                        checkBillElement.validate({
                             rules: {
                                 name: {
                                     required: true
@@ -107,24 +107,40 @@
                                 }
                             },
 
+                            submitHandler: function (form){
+                                alert('success')
+                                //$(form).submit()
+                            }
                             
                         })
                     }
                         
                 });
-                // $.ajax({
-                //     url:'checkout.html',
-                //     method:'post',
-                //     dataType:'json',
-                //     success:function(data){
-                //         $('#formpurche').formPurche({
-                //             data:data,
-                //             rules:[
-                                
-                //             ]
-                //         })
-                //     }
-                // })
+                
+                var checkBill = {}
+                $('#btnRegister').click(function(event){
+                    event.preventDefault();
+
+                    checkBill.name= $('#name').val();
+                    checkBill.email= $('#email').val();
+                    checkBill.numberphone= $('#numberphone').val();
+                    checkBill.address= $('#address').val();
+                    checkBill.namecard= $('#namecard').val();
+                    var checkBillrObj = JSON.stringify(checkBill);
+
+                $.ajax({
+                    url:'checkout.html',
+                    method:'post',
+                    data: checkBillrObj,
+                    contentType: 'application/json; charset: utf-8',
+                    success:function(data){
+                        alert('thanh toán thành công');
+                    },
+                    error: function(error){
+                        alert('lỗi thanh toán')
+
+                    }
+                })
             });
         </script>
     </body>

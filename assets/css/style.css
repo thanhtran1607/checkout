@@ -2,6 +2,12 @@
 
 }
 
+label .error {
+    display: block;
+    color: red;
+    font-style: italic;
+}
+
 .header {
     background-color: gray;
     height: 50px;

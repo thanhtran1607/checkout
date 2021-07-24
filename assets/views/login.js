@@ -2,7 +2,7 @@ if ($_POST){
     $numberphone = trim($_POST['numberphone']);
     $password = trim($_POST['password']);
 
-    if ($numberphone == 'số điện thoại' && $password == 'matkhau')
+    if ($numberphone == 'numberphone' && $password == 'password')
     {
         console.log('đăng nhập thành công')
     } else {
@@ -10,3 +10,4 @@ if ($_POST){
     }
 }
 
+  

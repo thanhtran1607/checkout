@@ -33,11 +33,12 @@
             
             <form id="formLogin">
              <!-- form-group// -->
-            <div class="form-group input-group">
+             <div class="form-group input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input id="numberphone" name="numberphone" class="form-control" placeholder="Số điện thoại" type="number">
+                <input id="username" name="username" class="form-control" placeholder="Tên đăng nhập" type="text">
+                <br>
             </div> <!-- form-group// -->
            
             <div class="form-group input-group">
@@ -65,41 +66,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
-    <!-- <script src="/assets/views/login.js"></script> -->
-    <!-- <script type="text/javascript">
-    $(document).ready(function(){
-        
-        $(function(){
-
-            var $formLogin = $('#formLogin');
-            if ($formLogin.length){
-                $formLogin.validate({
-                    rules: {
-                        numberphone:{
-                            required: true
-                        },
-                        password:{
-                            required: true
-                        }
-
-                    },
-                    messages:{
-                        numberphone:{
-                            required: 'vui lòng nhập số điện thoại!'
-                        },
-                        password:{
-                            required: 'vui lòng nhập mật khẩu!'
-                        }
-                    }
-                })
-            }
-
-
-            
-        });
-    });
-
-    </script> -->
 
     <script type="text/javascript">
         $(document).ready(function()
@@ -131,7 +97,10 @@
                 $.ajax({
                 type : 'POST', //kiểu post
                 url  : 'login.js', //gửi dữ liệu sang trang submit.php
-                data : data,
+                dataType : 'json',
+                data: {
+
+                },
                 success :  function(data)
                        {
                             if (data == 'false')

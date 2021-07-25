@@ -13,29 +13,33 @@
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/Client/assets/css/index_style.css">
     </head>
     <body>
         <header class="header">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Home</a>
+            <nav class="navbar navbar-expand-lg ">
+            
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="#">Band</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Tour</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Contact</a>
-                    </li>
+                        <li class="nav-item active">
+                            <a class="navbar-brand" href="#">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link active" href="#">Band</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Tour</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Contact</a>
+                        </li>
                     </ul>
 
                     <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                    <a href="..."><i class="fas fa-cart-plus" style="font-size: 2rem; color: rgba(255, 94, 0, 0.897);"></i></a>
+                <!-- link đến giỏ hàng khi đã xử lí xong action add into cart -->
+
+                </form>
                 </div>
             </nav>
             
@@ -43,7 +47,7 @@
 
         <div id="container">
             <div id="content-img">
-                <img src="/assets/images/musicband.jpg" alt="rock music band">
+                <img src="/Client/assets/images/musicband.jpg" alt="rock music band">
 
 
             </div>
@@ -64,10 +68,10 @@
                             <div class="col-sm-3" style="margin: 20px 20px;" >
                                 <div class="card" style="width: 18rem;">
                                     <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <button class="btnsubmit form-control btn btn-primary " type="submit" style="float: right; width: 40%;">Buy ticket</button>
+                                    <div class="card-body" style="padding: 14px 6px 6px 6px;">
+                                        <h5 class="card-title">Event</h5>
+                                        <p class="card-text">visit Ha Noi on july 29th</p>
+                                        <button class="btnsubmit form-control btn btn-primary " type="submit" style="float: right; width: 40%;">Đặt vé</button>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +86,7 @@
             
         </div>
 
-        <footer>
+        <!-- <footer>
             <h4>CONTACT</h4>
             <i>Fan? Drop a note!</i>
             <div class="contact-message">
@@ -95,7 +99,40 @@
                     <button type="submit">SEND</button>
                 </form>
             </div>
-        </footer>   
+        </footer>    -->
         
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(function (){
+                    $('.btnsubmit').on('click', function(){
+                        event.preventDefault();
+                        $.ajax({
+                            url: '..', // chuyển đén file xử lí event add into cart
+                            method: 'post',
+                            dataType:'json',
+                            success: function(){
+                                alert('thêm vào giỏ hàng thành công');
+
+
+                            },
+                            error: function(error){
+                                alert('hết vé, vui lòng chọn lại vé');
+                            }
+
+                        })
+
+                    })
+
+
+
+
+                });
+        }); 
+        </script>
+
+
     </body>
 </html>

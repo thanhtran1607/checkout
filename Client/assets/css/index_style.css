@@ -9,8 +9,8 @@ label .error {
 }
 
 .header {
-    background-color: gray;
-    height: 50px;
+    background-color: rgba(32, 32, 32, 0.87);
+    
 }
 
 

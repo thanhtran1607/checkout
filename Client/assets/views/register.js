@@ -8,7 +8,7 @@ if (!$username && !$email){
 }
  
 // Kết nối database
-$conn = mysqli_connect('localhost', 'root', 'vertrigo', 'test') or die ('{error:"bad_request"}');
+$conn = mysqli_connect('localhost', 'root', 'vertrigo', 'test') || die ('{error:"bad_request"}');
  
  
 // // Khai báo biến lưu lỗi
@@ -52,7 +52,7 @@ $conn = mysqli_connect('localhost', 'root', 'vertrigo', 'test') or die ('{error:
  
  
 // Tiến hành lưu vào CSDL
-$query = mysqli_query($conn, "insert into member(username, email) value ('$username','$email')");
+$query = mysqli_query($conn, "insert into member(username, email, numberphone, password) value ('$username','$email', '$numberphone','$password')");
      
  
 // Trả kết quả về cho client

@@ -39,20 +39,13 @@
                     <br>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" placeholder="14 Ha Dong" required>
-                        
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <input type="text" class="form-control" id="country" name="country" placeholder="Viet Nam" required>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="số 6 Nguyễn văn trỗi Mộ Lao Hà Đông Hà Nội" required>
                         
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="namecard">Name on card</label>
-                        <input type="number" class="form-control" id="namecard" name="namecard" placeholder="Name on card" required>
-                        
+                        <input type="number" class="form-control" id="namecard" name="namecard" placeholder="Name on card" required>    
                     </div>
                     <br>
                     <button id="btncheckout" class="form-control" type="submit">Continue to Checkout</button>
@@ -72,16 +65,16 @@
                         checkBillElement.validate({
                             rules: {
                                 name: {
-                                    required: true
+                                    required: true,
+
                                 },
                                 email: {
-                                    required: true
+                                    required: true,
+                                    email: true
                                 },
                                 address: {
-                                    required: true
-                                },
-                                country: {
-                                    required: true
+                                    required: true,
+
                                 },
                                 namecard: {
                                     required: true
@@ -94,7 +87,8 @@
                                     required: 'Please enter name!'
                                 },
                                 email: {
-                                    required: 'Please enter email!'
+                                    required: 'Please enter email!',
+                                    email: 'email chưa đúng định dạng'
                                 },
                                 address: {
                                     required: 'Please enter address!'
@@ -137,12 +131,12 @@
                         alert('thanh toán thành công');
                     },
                     error: function(error){
-                        alert('lỗi thanh toán')
+                        alert('lỗi thanh toán');
 
                     }
-                })
+                });
+                });
             });
-        }); 
         </script>
     </body>
 </html>

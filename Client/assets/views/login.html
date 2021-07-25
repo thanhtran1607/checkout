@@ -28,7 +28,7 @@
         <article class="card-body mx-auto" style="max-width: 500px;">
             <div class="inlineBlock">
                 <h4 class="card-title mt-3 text-center" style="float: left;">Đăng nhập</h4>
-                <h4 class="card-title mt-3 text-center" style="float: right;">Đăng kí</h4>
+                <h4 class="card-title mt-3 text-center" style="float: right; font-size: small; padding: 10px 0;">Đăng kí</h4>
             </div>
             
             <form id="formLogin">
@@ -54,8 +54,8 @@
             <p class="text-center">Have an account? </p>  
                                                                           
         </form>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block"> Đăng kí</button>
+        <div class="form-group" style="padding: 0 6rem;">
+            <button type="submit" class="btn btn-primary btn-block" style="width:6rem;"> Đăng kí</button>
         </div> 
         </article>
         </div> <!-- card.// -->
@@ -70,33 +70,54 @@
     <script type="text/javascript">
         $(document).ready(function()
         {
-            var submit = $("button[id='btnsubmit']");
+            // var submit = $("button[id='btnsubmit']");
              
-            // bắt sự kiện click vào nút Login
-            submit.click(function()
-            {
-                var numberphone = $("input[name='numberphone']").val();
-                var password = $("input[name='password']").val();
+            // // bắt sự kiện click vào nút Login
+            // submit.click(function()
+            // {
+            //     var username = $("input[name='username']").val();
+            //     var password = $("input[name='password']").val();
                  
                 // Kiểm tra đã nhập tên tài khoản chưa
-                if (numberphone == '' || numberphone.length < 10) {
-                    alert('Vui lòng nhập đúng số điện thoại');
-                    return false;
-                } 
-                
-                 
-                // Kiểm tra đã nhập mật khẩu chưa
-                if (password == '') {
-                    alert('Vui lòng nhập mật khẩu');
-                    return false;
-                }
-                 
+                fRegister.validate({
+                        rules: {
+                            username: {
+                                required: true,
+                                noSpace: true
+                            },
+                            password: {
+                                required: true,
+                                rangelength: [6, 10]
+                            }
+                        },
+                        messages: {
+                            username: {
+                                required: 'vui lòng nhập tên tài khoản'
+                            },
+                            password: {
+                                required: 'vui lòng nhập mật khẩu',
+                                rangelength: 'vui lòng nhập mật khẩu từ 6 đến 10 kí tự'
+                            }
+                        }
+
+                        
+                });
+
+                var submit = $("button[id='btnsubmit']");
+             
+                // bắt sự kiện click vào nút Login
+                submit.click(function()
+                {
+                event.preventDefaul
+                var username = $("input[name='username']").val();
+                var password = $("input[name='password']").val();
+
                 // Lấy tất cả dữ liệu trong form login
                 var data = $('form#formLogin').serialize();
                 // Sử dụng $.ajax()
                 $.ajax({
                 type : 'POST', //kiểu post
-                url  : 'login.js', //gửi dữ liệu sang trang submit.php
+                url  : 'login.js', //gửi dữ liệu sang trang login.js
                 dataType : 'json',
                 data: {
 

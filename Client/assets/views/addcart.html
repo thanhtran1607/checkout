@@ -1,112 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width initial-scale=1.0">
-        <title>Band music</title>
+        <meta name="viewport" content="width=width-device invitial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!------ Include the above in your HEAD tag ---------->
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/assets/css/style.css">
-        </head>
+        <title>Cart</title>
+        <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+        <link rel="stylesheet" href="/Client/assets/css/cart.css">
+    </head>
 
     <body>
-        <header class="header">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Home</a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link active" href="#">Band</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">Tour</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">Contact</a>
-                    </li>
-                  </ul>
-
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
-                </div>
-              </nav>
-            
-        </header>
-
-        <div id="container">
-            <div id="content">
-                <div class="row">
-                    <div class="col-sm-3" style="margin: 20px 20px;" >
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button class="btnsubmit form-control btn btn-primary " type="submit" style="float: right; width: 40%;">Buy ticket</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3" style="margin: 20px 20px;">
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button class="btnsubmit form-control btn btn-primary " type="submit" style="float: right; width: 40%;">Buy ticket</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3" style="margin: 20px 20px;">
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button class="btnsubmit form-control btn btn-primary " type="submit" style="float: right; width: 40%;">Buy ticket</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3" style="margin: 20px 20px;">
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button class="btnsubmit form-control btn btn-primary " type="submit" style="float: right; width: 40%;">Buy ticket</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3" style="margin: 20px 20px;">
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button class="btnsubmit form-control btn btn-primary " type="submit" style="float: right; width: 40%;">Buy ticket</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="container">
+            <h3>Giỏ hàng</h3>
+            <table>
+                <tr>
+                  <th>Vé mua</th>
+                  <th>Giá vé</th>
+                  <th>Số lượng</th>
+                </tr>
+                <tr>
+                  <td>Cua lại vợ bầu</td>
+                  <td>55 000 đ</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>Em chưa 18</td>
+                  <td>75 000 đ</td>
+                  <td>1</td>
+                </tr>
+                
+              </table>
         </div>
 
-      
-        <footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(function (){
+                    
 
-        </footer>
+
+
+
+                });
+        }); 
+        </script>
     </body>
 </html>
